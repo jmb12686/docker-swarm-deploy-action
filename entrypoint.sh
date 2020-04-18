@@ -31,7 +31,7 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     chmod 600 "$HOME/.ssh/docker"
     eval $(ssh-agent)
     ssh-add "$HOME/.ssh/docker"
-
+    echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 fi
 
 echo "Connecting to $INPUT_REMOTE_HOST..."
